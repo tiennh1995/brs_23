@@ -21,3 +21,25 @@
 
 en:
   hello: "Hello world"
+  static_pages:
+    about:
+      name: "About"
+      content_about: "Book Reviewing System"
+    help:
+      title: "Help"
+      name: "Framgia Viet Nam Co.,Ltd"
+      address: "13F, KeangNam LandMark 72 Building, E6 Pham Hung, Tu Liem, HN"
+      phone: "Tel: 04 3795 5417"
+    home:
+      title: "Welcome to Framgia Training System"
+  layouts:
+    footer:
+      about: "About"
+      help: "Help"
+      copyright: "@Copyright by team TQ"
+    application:
+      title: "Wellcome to Framgia Training System"
+    header:
+      title: "Book Reviewing System"
+      home: "Home"
+      login: "Log in"
