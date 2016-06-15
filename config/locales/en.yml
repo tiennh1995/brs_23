@@ -43,3 +43,9 @@ en:
       title: "Book Reviewing System"
       home: "Home"
       login: "Log in"
+  sessions:
+    new:
+      title: "Log in"
+      signup: "Sign up now!"
+      remember: "Remember me on this computer"
+      newuser: "New user"
