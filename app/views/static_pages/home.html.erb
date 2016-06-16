@@ -2,3 +2,9 @@
 <div class="center jumbotron">
   <%= link_to t("static_pages.home.signup"), signup_path, class: "btn btn-lg btn-primary" %>
 </div>
+<div class="row">
+  <ul>
+    <%= render @books %>
+  </ul>
+</div>
+<%= will_paginate @books %>
