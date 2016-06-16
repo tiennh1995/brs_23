@@ -4,14 +4,17 @@
     <tr>
       <th><%= t "users.index.fullname" %></th>
       <th><%= t "users.index.email" %></th>
+      <th><%= t "admin.index.delete" %></th>
     </tr>
   </thead>
   <tbody>
     <% @users.each do |user| %>
       <tr>
         <% unless user.is_admin? %>
-          <td><%= user.fullname %></td>
+          <td><%= link_to user.fullname, user %></td>
           <td><%= user.email %></td>
+          <td><%= link_to t("admin.index.delete"), admin_user_path(user),
+            method: :delete, data: {confirm: t("admin.index.confirm")} %></td>
         <% end %>
       </tr>
     <% end %>

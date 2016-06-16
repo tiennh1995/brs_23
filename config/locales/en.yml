@@ -64,10 +64,20 @@ en:
       all: "All Users"
       fullname: "FullName"
       email: "Email"
+    logged_in_user:
+      danger: "Please log in"
+  admin:
+    index:
+      delete: "Delete"
+      confirm: "You sure?"
   activerecord:
     controllers:
       users:
         success: "Create user successful!"
+      admin:
+        destroy:
+          success: "User delete successful!"
+          danger: "User delete fail!"
   shared:
     error_messages:
       title: "The form contains"

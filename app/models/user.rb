@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   has_many :requests, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_activities, through: :likes, source: :activity
-  has_many :microposts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :active_relationships, class_name: Follow.name,
                                   foreign_key: "follower_id",
                                   dependent: :destroy
