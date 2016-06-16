@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
 
   before_save :downcase_email
 
+  attr_accessor :remember_token
+
   def remember
     self.remember_token = User.new_token
     update_attributes remember_digest: User.digest(remember_token)

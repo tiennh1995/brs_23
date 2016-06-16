@@ -60,6 +60,10 @@ en:
       title: "Sign up"
       create: "Create my account"
       confirmation: "Confirmation"
+    index:
+      all: "All Users"
+      fullname: "FullName"
+      email: "Email"
   activerecord:
     controllers:
       users:

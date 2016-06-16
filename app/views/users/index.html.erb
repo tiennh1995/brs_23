@@ -1,0 +1,19 @@
+<h1><%= t "users.index.all" %></h1>
+<table style="width:100%" class="table table-bordered">
+  <thead>
+    <tr>
+      <th><%= t "users.index.fullname" %></th>
+      <th><%= t "users.index.email" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <% unless user.is_admin? %>
+          <td><%= user.fullname %></td>
+          <td><%= user.email %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
