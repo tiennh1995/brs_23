@@ -21,9 +21,10 @@
 
 en:
   hello: "Hello world"
+
   static_pages:
     about:
-      name: "About"
+      title: "About"
       content_about: "Book Reviewing System"
     help:
       title: "Help"
@@ -32,20 +33,38 @@ en:
       phone: "Tel: 04 3795 5417"
     home:
       title: "Welcome to Framgia Training System"
+      signup: "Sign up now!"
   layouts:
     footer:
       about: "About"
       help: "Help"
       copyright: "@Copyright by team TQ"
-    application:
-      title: "Wellcome to Framgia Training System"
     header:
       title: "Book Reviewing System"
       home: "Home"
       login: "Log in"
+      logout: "Log out"
+      account: "Account"
+      users: "Users"
+      profile: "Profile"
+      settings: "Settings"
   sessions:
     new:
       title: "Log in"
       signup: "Sign up now!"
       remember: "Remember me on this computer"
       newuser: "New user"
+      danger: "Invalid email/password combinaion"
+  users:
+    new:
+      title: "Sign up"
+      create: "Create my account"
+      confirmation: "Confirmation"
+  activerecord:
+    controllers:
+      users:
+        success: "Create user successful!"
+  shared:
+    error_messages:
+      title: "The form contains"
+      error: "error"
