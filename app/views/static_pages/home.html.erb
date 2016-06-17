@@ -1,7 +1,10 @@
 <h1><%= t "static_pages.home.title" %></h1>
-<div class="center jumbotron">
-  <%= link_to t("static_pages.home.signup"), signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+<% unless logged_in? %>
+  <div class="center jumbotron">
+    <%= link_to t("static_pages.home.signup"),
+      signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>
 <div class="row">
   <ul>
     <%= render @books %>

@@ -8,4 +8,9 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
   resources :users
   resources :books, only: [:index, :show]
+
+  namespace :admin do
+    root "users#index"
+    resources :users, only: [:index, :destroy]
+  end
 end
