@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get "signup" => "users#new"
 
   resources :users do
-    resources :requests, only: [:index, :new, :create]
+    resources :requests, except: [:show, :update, :edit]
   end
 
   resources :books, only: [:index, :show]

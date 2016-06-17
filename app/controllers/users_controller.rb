@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if @user.save
        log_in @user
        redirect_to root_url
-       flash[:success] = t "activerecord.controllers.users.success"
+       flash.now[:success] = t "activerecord.controllers.users.success"
     else
       render :new
     end
