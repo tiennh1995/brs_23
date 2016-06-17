@@ -72,8 +72,17 @@ en:
       delete: "Delete"
       confirm: "You sure?"
   request:
+    book_title: "Title"
+    book_publish_date: "Publish date"
+    book_author: "Author"
     new:
       send: "Send request"
+      history: "History"
+    index:
+      all: "Request all"
+      control: "Control"
+      delete: "Delete"
+      confirm: "You sure?"
   activerecord:
     controllers:
       users:
@@ -85,6 +94,9 @@ en:
       request:
         create:
           success: "Send request successful!"
+        destroy:
+          success: "Delete request successful!"
+          danger: "Delete request fail!"
   shared:
     error_messages:
       title: "The form contains"

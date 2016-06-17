@@ -10,9 +10,9 @@ class Admin::UsersController < ApplicationController
     user = User.find_by_id params[:id]
     if user.present?
       user.destroy
-      flash[:success] = t "activerecord.controllers.admin.destroy.success"
+      flash.now[:success] = t "activerecord.controllers.admin.destroy.success"
     else
-      flash[:danger] = t "activerecord.controllers.admin.destroy.danger"
+      flash.now[:danger] = t "activerecord.controllers.admin.destroy.danger"
     end
     redirect_to admin_users_url
   end

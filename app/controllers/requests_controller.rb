@@ -1,6 +1,10 @@
 class RequestsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create]
+  before_action :logged_in_user, except: [:show, :edit, :update]
   before_action :check_admin, only: [:new, :create]
+
+  def index
+    @requests = Request.all
+  end
 
   def new
     @request = Request.new
@@ -10,11 +14,22 @@ class RequestsController < ApplicationController
   def create
     @request = current_user.requests.new request_params
     if @request.save
-      redirect_to root_url
-      flash[:success] = t "activerecord.controllers.request.create.success"
+      redirect_to user_requests_path current_user
+      flash.now[:success] = t "activerecord.controllers.request.create.success"
     else
       render :new
     end
+  end
+
+  def destroy
+    request = Request.find_by_id params[:id]
+    if request.present?
+      request.destroy
+      flash.now[:success] = t "activerecord.controllers.request.destroy.success"
+    else
+      flash.now[:danger] = t "activerecord.controllers.request.destroy.danger"
+    end
+    redirect_to user_requests_path current_user
   end
 
   private
