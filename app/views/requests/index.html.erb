@@ -5,7 +5,7 @@
       <th><%= t "request.book_title" %></th>
       <th><%= t "request.book_publish_date" %></th>
       <th><%= t "request.book_author" %></th>
-      <th><%= t "request.index.control" %></th>
+      <th><%= t "action.title" %></th>
     </tr>
   </thead>
   <tbody>
@@ -14,9 +14,9 @@
         <td><%= request.book_title %></td>
         <td><%= request.book_publish_date %></td>
         <td><%= request.book_author %></td>
-        <td><%= link_to t("request.index.delete"),
+        <td><%= link_to t("action.delete"),
           [current_user, request], method: :delete,
-            data: {confirm: t("request.index.confirm")} %></td>
+            data: {confirm: t("action.confirm")} %></td>
       </tr>
     <% end %>
   </tbody>
