@@ -13,7 +13,7 @@
         <%= f.check_box :remember_me %>
         <span><%= t "sessions.new.remember" %></span>
       <% end %>
-      <%= f.submit t "sessions.new.title", class: "btn btn-primary" %>
+      <%= f.submit t("sessions.new.title"), class: "btn btn-primary" %>
     <% end %>
     <p><%= t "sessions.new.newuser" %>? <%= link_to t("sessions.new.signup"),
       signup_path %></p>

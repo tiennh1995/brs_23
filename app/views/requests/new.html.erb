@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for [@user, @request] do |f| %>
+      <%= render "shared/error_messages", object: @request %>
+
+      <%= f.label :book_title %>
+      <%= f.text_field :book_title, class: "form-control" %>
+
+      <%= f.label :book_publish_date %>
+      <%= f.text_field :book_publish_date, class: "form-control" %>
+
+      <%= f.label :book_author, "book_author" %>
+      <%= f.text_field :book_author, class: "form-control" %>
+
+      <%= f.submit t("request.new.send"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
