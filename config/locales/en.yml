@@ -48,6 +48,7 @@ en:
       users: "Users"
       profile: "Profile"
       settings: "Settings"
+      request: "Request"
   sessions:
     new:
       title: "Log in"
@@ -70,6 +71,9 @@ en:
     index:
       delete: "Delete"
       confirm: "You sure?"
+  request:
+    new:
+      send: "Send request"
   activerecord:
     controllers:
       users:
@@ -78,6 +82,9 @@ en:
         destroy:
           success: "User delete successful!"
           danger: "User delete fail!"
+      request:
+        create:
+          success: "Send request successful!"
   shared:
     error_messages:
       title: "The form contains"
