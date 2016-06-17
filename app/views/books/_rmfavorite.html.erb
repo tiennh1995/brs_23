@@ -1,0 +1,3 @@
+<%= form_for [@book, @mark], html: {method: :delete}, remote: true do |f| %>
+  <%= f.submit t("books.show.unfavorite"), class: "btn" %>
+<% end %>

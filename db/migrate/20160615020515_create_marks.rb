@@ -8,6 +8,6 @@ class CreateMarks < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_index :marks, [:read, :is_favorite], name: "index_mark", unique: true
+    add_index :marks, [:read, :is_favorite], name: "index_mark"
   end
 end

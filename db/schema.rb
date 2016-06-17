@@ -30,11 +30,13 @@ ActiveRecord::Schema.define(version: 20160615020538) do
     t.string   "author"
     t.integer  "pages"
     t.string   "picture"
+    t.integer  "category_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  add_index "books", ["title", "publish_date", "author"], name: "index_books", unique: true
+  add_index "books", ["category_id"], name: "index_books_on_category_id"
+  add_index "books", ["title", "publish_date", "author", "category_id"], name: "index_books", unique: true
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -88,7 +90,7 @@ ActiveRecord::Schema.define(version: 20160615020538) do
   end
 
   add_index "marks", ["book_id"], name: "index_marks_on_book_id"
-  add_index "marks", ["read", "is_favorite"], name: "index_mark", unique: true
+  add_index "marks", ["read", "is_favorite"], name: "index_mark"
   add_index "marks", ["user_id"], name: "index_marks_on_user_id"
 
   create_table "requests", force: :cascade do |t|
