@@ -1,22 +1,30 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_for [@user, @request] do |f| %>
+    <%= form_for [current_user, @request] do |f| %>
       <%= render "shared/error_messages", object: @request %>
 
-      <%= f.label t("request.book_title") %>
-      <%= f.text_field :book_title, class: "form-control" %>
+      <%= f.label t("books.new.title") %>
+      <%= f.text_field :book_title, class: "form-control",
+        placeholder: t("books.new.title") %>
 
-      <%= f.label t("request.book_publish_date") %>
-      <%= f.text_field :book_publish_date, class: "datepicker",
-        id: "form_pb_date" %>
+      <%= f.label t("books.new.publish_date") %>
+      <div class="input-group date" data-provide="datepicker"
+        data-date-format="dd/mm/yyyy">
+        <%= f.text_field :book_publish_date, class: "form-control",
+          placeholder: t("books.new.publish_date_form") %>
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-th"/>
+        </div>
+      </div>
 
-      <%= f.label :book_author, t("request.book_author") %>
-      <%= f.text_field :book_author, class: "form-control" %>
+      <%= f.label :book_author, t("books.new.author") %>
+      <%= f.text_field :book_author, class: "form-control",
+        placeholder: t("books.new.author") %>
 
       <%= f.submit t("request.new.send"), class: "btn btn-primary" %>
     <% end %>
     <br>
-    <%= link_to t("request.new.history"), user_requests_path(@user),
+    <%= link_to t("request.new.history"), user_requests_path(current_user),
       class: "btn btn-primary" %>
   </div>
 </div>
