@@ -9,6 +9,7 @@
       <th class="col-md-1"><%= t "books.new.pages" %></th>
       <th class="col-md-1"><%= t "books.new.created_at" %></th>
       <th class="col-md-1"><%= t "books.new.updated_at" %></th>
+      <th><%= t "action.title" %></th>
     </tr>
   </thead>
   <tbody>
@@ -21,6 +22,7 @@
         <td class="col-md-1"><%= book.pages %></td>
         <td class="col-md-1"><%= l book.created_at, format: :default %></td>
         <td class="col-md-1"><%= l book.updated_at, format: :default %></td>
+        <td><%= link_to t("action.edit"), edit_admin_book_path(book) %></td>
       </tr>
     <% end %>
   </tbody>

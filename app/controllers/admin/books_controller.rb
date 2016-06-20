@@ -1,6 +1,7 @@
 class Admin::BooksController < ApplicationController
   before_action :logged_in_user
   before_action :admin_user
+  before_action :find_book, only: [:edit, :update]
 
   def index
     @books = Book.paginate page: params[:page], per_page: Settings.per_page
@@ -22,9 +23,26 @@ class Admin::BooksController < ApplicationController
     end
   end
 
+  def edit
+    @categories = Category.all
+  end
+
+  def update
+    if @book.update_attributes book_params
+      flash[:success] = t "activerecord.controllers.admin.update.success"
+      redirect_to admin_books_path
+    else
+      @categories = Category.all
+      render :edit
+    end
+  end
+
   private
   def book_params
     params.require(:book).permit :title, :publish_date, :author,
       :pages, :picture, :category_id
+  end
+  def find_book
+    @book = Book.find params[:id]
   end
 end
