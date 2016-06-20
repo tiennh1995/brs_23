@@ -61,6 +61,9 @@ en:
       settings: "Settings"
       request: "Request"
       addbook: "Add new book"
+    stats:
+      followers: "followers"
+      following: "following"
   sessions:
     new:
       title: "Log in"
@@ -79,6 +82,10 @@ en:
       email: "Email"
     logged_in_user:
       danger: "Please log in"
+    follow: "Follow"
+    unfollow: "Unfollow"
+    showfollow:
+      view: "View my profile"
   admin:
     index:
       delete: "Delete"

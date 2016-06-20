@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :show]
+  before_action :logged_in_user, only: [:index, :show, :following, :followers]
 
   def index
     @users = User.all
@@ -22,6 +22,18 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def following
+    @user = User.find_by_id params[:id]
+    @users = @user.following.paginate page: params[:page]
+    render :show_follow
+  end
+
+  def followers
+    @user = User.find_by_id params[:id]
+    @users = @user.followers.paginate page: params[:page]
+    render :show_follow
   end
 
   private

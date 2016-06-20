@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615020538) do
+ActiveRecord::Schema.define(version: 20160620074359) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "action_id"
@@ -90,6 +90,17 @@ ActiveRecord::Schema.define(version: 20160615020538) do
   add_index "marks", ["book_id"], name: "index_marks_on_book_id"
   add_index "marks", ["read", "is_favorite"], name: "index_mark", unique: true
   add_index "marks", ["user_id"], name: "index_marks_on_user_id"
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id"
+    t.integer  "followed_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
+  add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
+  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
   create_table "requests", force: :cascade do |t|
     t.string   "book_title"

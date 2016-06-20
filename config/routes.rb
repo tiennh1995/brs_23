@@ -10,10 +10,12 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :requests, except: [:show, :update, :edit]
+    member do
+      get :following, :followers
+    end
   end
-
   resources :books, only: [:index, :show]
-
+  resources :follows, only: [:create, :destroy]
   namespace :admin do
     root "users#index"
     resources :users, only: [:index, :destroy]
