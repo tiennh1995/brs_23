@@ -4,6 +4,7 @@ class Admin::BooksController < ApplicationController
 
   def index
     @books = Book.paginate page: params[:page], per_page: Settings.per_page
+    @categories = Category.all
   end
 
   def new
@@ -14,7 +15,7 @@ class Admin::BooksController < ApplicationController
   def create
     @book = Book.new book_params
     if @book.save
-      redirect_to root_path
+      redirect_to admin_books_path
     else
       @categories = Category.all
       render :new

@@ -7,6 +7,7 @@
         <% if logged_in? %>
           <% if current_user.is_admin? %>
             <li><%= link_to t("layouts.header.users"), admin_root_path %></li>
+            <li><%= link_to t("books.index.title"), admin_books_path %></li>
             <li><%= link_to t("layouts.header.addbook"),
               new_admin_book_url %></li>
           <% else %>
