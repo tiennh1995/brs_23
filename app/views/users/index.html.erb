@@ -10,7 +10,7 @@
     <% @users.each do |user| %>
       <tr>
         <% unless user.is_admin? %>
-          <td><%= user.fullname %></td>
+          <td><%= link_to user.fullname, user %></td>
           <td><%= user.email %></td>
         <% end %>
       </tr>
