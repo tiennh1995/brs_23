@@ -22,7 +22,11 @@
         <td class="col-md-1"><%= book.pages %></td>
         <td class="col-md-1"><%= l book.created_at, format: :default %></td>
         <td class="col-md-1"><%= l book.updated_at, format: :default %></td>
-        <td><%= link_to t("action.edit"), edit_admin_book_path(book) %></td>
+        <td>
+          <%= link_to t("action.edit"), edit_admin_book_path(book) %>
+          <%= link_to t("action.delete"), admin_book_url(book), method: :delete,
+            data: {confirm: t("admin.index.confirm")} %>
+        </td>
       </tr>
     <% end %>
   </tbody>
