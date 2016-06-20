@@ -1,7 +1,7 @@
 class Admin::BooksController < ApplicationController
   before_action :logged_in_user
   before_action :admin_user
-  before_action :find_book, only: [:edit, :update]
+  before_action :find_book, only: [:edit, :update, :destroy]
 
   def index
     @books = Book.paginate page: params[:page], per_page: Settings.per_page
@@ -35,6 +35,15 @@ class Admin::BooksController < ApplicationController
       @categories = Category.all
       render :edit
     end
+  end
+
+  def destroy
+    if @book.destroy
+      flash[:success] = t "activerecord.controllers.admin.destroy.success"
+    else
+      flash[:danger] = t "activerecord.controllers.admin.destroy.danger"
+    end
+    redirect_to :back
   end
 
   private
