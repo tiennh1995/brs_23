@@ -6,9 +6,10 @@ class CreateBooks < ActiveRecord::Migration
       t.string :author
       t.integer :pages
       t.string :picture
+      t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false
     end
-    add_index :books, [:title, :publish_date, :author], name: "index_books", unique: true
+    add_index :books, [:title, :publish_date, :author, :category_id], name: "index_books", unique: true
   end
 end

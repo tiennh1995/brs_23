@@ -49,6 +49,7 @@ en:
       profile: "Profile"
       settings: "Settings"
       request: "Request"
+      addbook: "Add new book"
   sessions:
     new:
       title: "Log in"
@@ -80,17 +81,14 @@ en:
       history: "History"
     index:
       all: "Request all"
-      control: "Control"
-      delete: "Delete"
-      confirm: "You sure?"
   activerecord:
     controllers:
       users:
         success: "Create user successful!"
       admin:
         destroy:
-          success: "User delete successful!"
-          danger: "User delete fail!"
+          success: "Delete successful!"
+          danger: "Delete fail!"
       request:
         create:
           success: "Send request successful!"
@@ -101,3 +99,23 @@ en:
     error_messages:
       title: "The form contains"
       error: "error"
+  books:
+    new:
+      namesite: "Add new book"
+      title: "Title"
+      author: "Author"
+      publish_date: "Publish date"
+      publish_date_form: "Use format: yyyy/mm/dd"
+      category: "Category"
+      category_form: "Please select the category of this book"
+      pages: "Pages"
+      created_at: "Created"
+      updated_at: "Last edit"
+      save: "Save"
+    index:
+      title: "All book"
+  action:
+    title: "Action"
+    edit: "Edit"
+    delete: "Delete"
+    confirm: "Are you sure?"

@@ -3,4 +3,10 @@ class Book < ActiveRecord::Base
 
   has_many :reviews
   has_many :marks
+
+  validates :category_id, presence: true
+  validates :title, presence: true, length: {maximum: 250}
+  validates :author, presence: true, length: {maximum: 250}
+  validates :pages, presence: true, length: {maximum: 6},
+    numericality: { only_integer: true }
 end

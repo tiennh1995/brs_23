@@ -13,11 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
-//= require bootstrap-datepicker
+
 $(document).ready(function(){
   $(".datepicker").datepicker({
-    format: "yyyy/mm/dd"
+    format: "yyyy/mm/dd",
+    autoclose: true,
+    todayHighlight: true
  });
 });
