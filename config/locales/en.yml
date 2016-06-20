@@ -84,9 +84,6 @@ en:
       delete: "Delete"
       confirm: "You sure?"
   request:
-    book_title: "Title"
-    book_publish_date: "Publish date"
-    book_author: "Author"
     new:
       send: "Send request"
       history: "History"
@@ -100,9 +97,13 @@ en:
         destroy:
           success: "Delete successful!"
           danger: "Delete fail!"
+        update:
+          success: "Update successful!"
+          danger: "Update fails, please try again!"
       request:
         create:
           success: "Send request successful!"
+          danger: "Send request fail!"
         destroy:
           success: "Delete request successful!"
           danger: "Delete request fail!"
@@ -125,6 +126,8 @@ en:
       save: "Save"
     index:
       title: "All book"
+    edit:
+      title: "Edit"
   action:
     title: "Action"
     edit: "Edit"

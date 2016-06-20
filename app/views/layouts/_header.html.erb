@@ -22,8 +22,13 @@
               <li><%= link_to t("layouts.header.settings"),
                 edit_user_path(current_user) %></li>
               <li class="divider"></li>
-              <li><%= link_to t("layouts.header.request"),
-                new_user_request_path(current_user) %></li>
+              <% if current_user.is_admin? %>
+                <li><%= link_to t("layouts.header.request"),
+                  admin_requests_path %></li>
+              <% else %>
+                <li><%= link_to t("layouts.header.request"),
+                  new_user_request_path(current_user) %></li>
+              <% end %>
               <li>
                 <%= link_to t("layouts.header.logout"), logout_path,
                   method: :delete %>

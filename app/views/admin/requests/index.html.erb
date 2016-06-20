@@ -1,0 +1,23 @@
+<h1><%= t "request.index.all" %></h1>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><%= t "request.book_title" %></th>
+      <th><%= t "request.book_publish_date" %></th>
+      <th><%= t "request.book_author" %></th>
+      <th><%= t "request.index.control" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.book_title %></td>
+        <td><%= request.book_publish_date %></td>
+        <td><%= request.book_author %></td>
+        <td><%= link_to t("action.delete"),
+          [:admin, request], method: :delete,
+          data: {confirm: t("action.confirm")} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
