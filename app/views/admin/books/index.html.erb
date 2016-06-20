@@ -1,0 +1,28 @@
+<h1><%= t "books.index.title" %></h1>
+<table class="table table-bordered table table-striped">
+  <thead>
+    <tr>
+      <th class="col-md-2"><%= t "books.new.title" %></th>
+      <th><%= t "books.new.category" %></th>
+      <th><%= t "books.new.author" %></th>
+      <th class="col-md-2"><%= t "books.new.publish_date" %></th>
+      <th class="col-md-1"><%= t "books.new.pages" %></th>
+      <th class="col-md-1"><%= t "books.new.created_at" %></th>
+      <th class="col-md-1"><%= t "books.new.updated_at" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td class="col-md-2"><%= book.title %></td>
+        <td><%= @categories.find(book.category_id).name %></td>
+        <td><%= book.author %></td>
+        <td class="col-md-2"><%= l book.publish_date, format: :short %></td>
+        <td class="col-md-1"><%= book.pages %></td>
+        <td class="col-md-1"><%= l book.created_at, format: :default %></td>
+        <td class="col-md-1"><%= l book.updated_at, format: :default %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate %>
