@@ -61,6 +61,7 @@ en:
       settings: "Settings"
       request: "Request"
       addbook: "Add new book"
+      history: "History"
     stats:
       following: "following"
       followers: "followers"
@@ -138,3 +139,7 @@ en:
     edit: "Edit"
     delete: "Delete"
     confirm: "Are you sure?"
+  marks:
+    all: "All read books"
+    reading: "Reading"
+    mark: "Mark"
