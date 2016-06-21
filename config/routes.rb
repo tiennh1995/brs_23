@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :requests, except: [:show, :update, :edit]
+    resources :marks, only: :index
   end
   resources :follows, only: [:create, :destroy]
   resources :books, only: [:index, :show]

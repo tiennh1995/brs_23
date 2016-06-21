@@ -26,6 +26,8 @@
                 <li><%= link_to t("layouts.header.request"),
                   admin_requests_path %></li>
               <% else %>
+                <li><%= link_to t("layouts.header.history"),
+                  user_marks_path(current_user) %></li>
                 <li><%= link_to t("layouts.header.request"),
                   new_user_request_path(current_user) %></li>
               <% end %>
