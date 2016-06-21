@@ -11,9 +11,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :requests, except: [:show, :update, :edit]
   end
-
+  resources :follows, only: [:create, :destroy]
   resources :books, only: [:index, :show]
-
   namespace :admin do
     root "users#index"
     resources :users, only: [:index, :destroy]
