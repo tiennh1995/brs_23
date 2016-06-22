@@ -62,6 +62,7 @@ en:
       request: "Request"
       addbook: "Add new book"
       history: "History"
+      favorite: "All favorite"
     stats:
       following: "following"
       followers: "followers"
@@ -132,14 +133,22 @@ en:
       save: "Save"
     index:
       title: "All book"
+      favorite: "User favorite"
     edit:
       title: "Edit"
+    show:
+      favorite: "Mask as Favourite"
+      unfavorite: "Remove Favourite"
+      addtofavorite: "Added to my favorite"
+      removefavorite: "Favorite deleted"
   action:
     title: "Action"
     edit: "Edit"
     delete: "Delete"
     confirm: "Are you sure?"
   marks:
-    all: "All read books"
+    allread: "All read books"
     reading: "Reading"
     mark: "Mark"
+  error:
+    fail: "Sorry, something went wrong"

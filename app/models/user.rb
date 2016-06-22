@@ -51,6 +51,10 @@ class User < ActiveRecord::Base
     following.include? other_user
   end
 
+  def favorite? book_id
+    self.marks.find_by(book_id: book_id, is_favorite: true).present?
+  end
+
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MINCOST :

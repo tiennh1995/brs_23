@@ -13,7 +13,9 @@ Rails.application.routes.draw do
     resources :marks, only: :index
   end
   resources :follows, only: [:create, :destroy]
-  resources :books, only: [:index, :show]
+  resources :books, only: [:index, :show] do
+    resources :marks, only: [:create, :destroy]
+  end
   namespace :admin do
     root "users#index"
     resources :users, only: [:index, :destroy]
