@@ -63,6 +63,7 @@ en:
       addbook: "Add new book"
       history: "History"
       favorite: "All favorite"
+      search: "Search"
     stats:
       following: "following"
       followers: "followers"
@@ -152,3 +153,6 @@ en:
     mark: "Mark"
   error:
     fail: "Sorry, something went wrong"
+  searches:
+    title: "Search"
+    search: "Search"

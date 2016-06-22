@@ -14,4 +14,11 @@ class ApplicationController < ActionController::Base
   def admin_user
     redirect_to root_url unless current_user.is_admin?
   end
+
+  def check_null object
+    unless object
+      flash[:danger] = t "error.fail"
+      redirect_to :back
+    end
+  end
 end
