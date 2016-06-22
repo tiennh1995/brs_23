@@ -11,6 +11,7 @@
             <li><%= link_to t("layouts.header.addbook"),
               new_admin_book_url %></li>
           <% else %>
+            <li><%= link_to t("books.index.title"), books_path %></li>
             <li><%= link_to t("layouts.header.users"), users_path %></li>
           <% end %>
           <li class="dropdown">
