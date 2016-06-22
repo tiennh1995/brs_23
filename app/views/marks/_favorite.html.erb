@@ -1,0 +1,16 @@
+<% @favorites.each do |favorite| %>
+  <tr>
+    <% book = favorite.book %>
+    <td><%= link_to book.title, book %></td>
+    <td><%= book.author %></td>
+    <td><%= book.publish_date %></td>
+    <td><%= book.category.name %></td>
+    <td><%= book.pages %></td>
+    <td><%= t "favorite.#{favorite.read}" %></td>
+    <td>
+      <%= link_to t("action.delete"),
+        user_mark_path(current_user, favorite, mark: "favorite"),
+        method: :patch, data: {confirm: t("action.confirm")} %>
+    </td>
+  </tr>
+<% end %>

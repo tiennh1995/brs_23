@@ -1,0 +1,16 @@
+<% @marks.each do |mark| %>
+  <tr>
+    <% book = mark.book %>
+    <td><%= link_to book.title, book %></td>
+    <td><%= book.author %></td>
+    <td><%= book.publish_date %></td>
+    <td><%= book.category.name %></td>
+    <td><%= book.pages %></td>
+    <td><%= t "mark.#{mark.read}" %></td>
+    <td>
+      <%= link_to t("action.delete"),
+        user_mark_path(current_user, mark, mark: "read"),
+        method: :patch, data: {confirm: t("action.confirm")} %>
+    </td>
+  </tr>
+<% end %>
