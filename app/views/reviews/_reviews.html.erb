@@ -1,0 +1,15 @@
+<% @reviews.each do |review| %>
+  <li id="review-<%= review.id %>">
+    <span class="content">
+      <%= review.rated %>
+      |
+      <%= review.content %>
+    </span>
+    <span class="timestamp">
+      <% if current_user? review.user %>
+        <%= link_to t("action.delete"), [@book, review], method: :delete,
+          data: {confirm: t("action.confirm")} %>
+      <% end %>
+    </span>
+  </li>
+<% end %>

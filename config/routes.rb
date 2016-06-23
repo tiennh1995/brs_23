@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :follows, only: [:create, :destroy]
   resources :books, only: [:index, :show] do
     resources :marks, only: [:create, :destroy]
+    resources :reviews, only: [:create, :destroy]
   end
   namespace :admin do
     root "users#index"

@@ -10,5 +10,7 @@ class BooksController < ApplicationController
     check_null @book
     @mark = @book.marks.find_or_initialize_by user_id: current_user.id,
       is_favorite: true
+    @reviews = @book.reviews
+    @review = @reviews.build
   end
 end
