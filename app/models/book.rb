@@ -9,7 +9,9 @@ class Book < ActiveRecord::Base
   validates :author, presence: true, length: {maximum: 250}
   validates :pages, presence: true, length: {maximum: 6},
     numericality: {only_integer: true}
-  scope :search_by, ->(search) {where "title LIKE ?", "%#{search}%"}
+  scope :search_by, ->(search) {where "title LIKE ? OR publish_date = ?
+    OR author LIKE ? OR pages = ?",
+    "%#{search}%", "#{search}", "%#{search}%", "#{search}"}
 
   class << self
     def search search
