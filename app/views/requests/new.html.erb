@@ -8,14 +8,8 @@
         placeholder: t("books.new.title") %>
 
       <%= f.label t("books.new.publish_date") %>
-      <div class="input-group date" data-provide="datepicker"
-        data-date-format="dd/mm/yyyy">
-        <%= f.text_field :book_publish_date, class: "form-control",
-          placeholder: t("books.new.publish_date_form") %>
-        <div class="input-group-addon">
-          <span class="glyphicon glyphicon-th"/>
-        </div>
-      </div>
+      <%= f.text_field :book_publish_date, class: "datepicker",
+        placeholder: t("books.new.publish_date_form") %>
 
       <%= f.label :book_author, t("books.new.author") %>
       <%= f.text_field :book_author, class: "form-control",
