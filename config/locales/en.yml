@@ -156,3 +156,9 @@ en:
   searches:
     title: "Search"
     search: "Search"
+  reviews:
+    rated: "Rated"
+    content: "Content"
+    create: "Create"
+    success: "successful!"
+    danger: "fail!"
