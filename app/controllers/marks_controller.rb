@@ -1,9 +1,10 @@
 class MarksController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user, only: :index
-  before_action :find_book, only: [:create, :destroy]
+  before_action :find_book, only: :create
   def index
-    @marks = current_user.marks
+    @marks = current_user.marks.read_or_reading
+    @favorites = current_user.marks.where is_favorite: true
   end
 
   def create
@@ -17,17 +18,15 @@ class MarksController < ApplicationController
     end
   end
 
-  def destroy
-    favorite = @book.marks.find_by id: params[:id], is_favorite: true
-    if favorite.present?
-      favorite.destroy
-      respond_to do |format|
-        format.html {redirect_to @book}
-        format.js
-      end
+  def update
+    @mark = Mark.find_by id: params[:id]
+    check_null @mark
+    if params[:mark] == "favorite"
+      @mark.update_attributes is_favorite: false
     else
-      flash[:danger] = t "error.fail"
+      @mark.nothing!
     end
+    redirect_to :back
   end
 
   private

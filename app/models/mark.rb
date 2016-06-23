@@ -1,5 +1,6 @@
 class Mark < ActiveRecord::Base
   belongs_to :user
   belongs_to :book
-  enum read: [:reading, :mark]
+  enum read: [:nothing, :reading, :read]
+  scope :read_or_reading, ->{where.not read: "nothing"}
 end

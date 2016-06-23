@@ -1,7 +1,7 @@
 class CreateMarks < ActiveRecord::Migration
   def change
     create_table :marks do |t|
-      t.integer :read
+      t.integer :read, default: 0
       t.boolean :is_favorite, default: false
       t.references :user, index: true, foreign_key: true
       t.references :book, index: true, foreign_key: true

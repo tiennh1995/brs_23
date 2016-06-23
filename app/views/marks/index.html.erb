@@ -1,4 +1,7 @@
-<h1><%= t "marks.all" %></h1>
+<h1>
+  <%= params[:mark] == "favorite" ? t("marks.allfavorite") :
+    t("marks.allread") %>
+</h1>
 <table class="table table-bordered">
   <thead>
     <tr>
@@ -8,19 +11,10 @@
       <th><%= t "books.new.category" %></th>
       <th><%= t "books.new.pages" %></th>
       <th><%= t "marks.status" %></th>
+      <th><%= t "action.title" %></th>
     </tr>
   </thead>
   <tbody>
-    <% @marks.each do |mark| %>
-      <tr>
-        <% book = mark.book %>
-        <td><%= link_to book.title, book %></td>
-        <td><%= book.author %></td>
-        <td><%= book.publish_date %></td>
-        <td><%= book.category.name %></td>
-        <td><%= book.pages %></td>
-        <td><%= t "mark.#{mark.read}" %></td>
-      </tr>
-    <% end %>
+    <%= render params[:mark] == "favorite" ? "favorite" : "read" %>
   </tbody>
 </table>

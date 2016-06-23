@@ -150,7 +150,8 @@ en:
   marks:
     allread: "All read books"
     reading: "Reading"
-    mark: "Mark"
+    reads: "Read"
+    allfavorite: "All favorite books"
   error:
     fail: "Sorry, something went wrong"
   searches:
