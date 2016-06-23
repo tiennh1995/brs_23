@@ -17,7 +17,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
+$(document).on("page:load", function(){
   $(".datepicker").datepicker({
     format: "yyyy/mm/dd",
     autoclose: true,
