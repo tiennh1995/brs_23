@@ -1,13 +1,16 @@
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for [@book, @review] do |f| %>
-      <%= render "shared/error_messages", object: @review %>
-      <br>
+<%= form_for [@book, @review] do |f| %>
+  <div class="row" style="display: inline;">
+    <div class="col-md-3">
       <%= f.label :rated, t("reviews.rated") %>
       <%= f.number_field :rated, in: 1..5 %>
+    </div>
+    <%= render "shared/error_messages", object: @review %>
+    <div class="col-md-9">
       <%= f.label :content, t("reviews.content") %>
       <%= f.text_area :content, class: "form-control" %>
-      <%= f.submit t("reviews.create"), class: "btn btn-primary" %>
-    <% end %>
+    </div>
   </div>
-</div>
+  <div class="col-md-3 pull-right">
+    <%= f.submit t("reviews.create"), class: "btn btn-primary" %>
+  </div>
+<% end %>

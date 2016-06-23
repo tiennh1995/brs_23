@@ -164,3 +164,7 @@ en:
     success: "successful!"
     danger: "fail!"
     save: "Save"
+    title: "reviews"
+  times:
+    posted: "Posted"
+    ago: "ago."

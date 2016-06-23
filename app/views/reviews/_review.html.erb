@@ -1,0 +1,13 @@
+<li id="review-<%= review.id %>">
+  <span class="content"><h4><%= link_to review.user.fullname, review.user %></h4></span>
+  <span class="content"><%= review.content %></span>
+  <span class="timestamp">
+    <%= t "times.posted" %> <%= time_ago_in_words(review.created_at) %>
+    <%= t "times.ago" %>
+    <% if current_user? review.user %>
+      <%= link_to t("action.edit"), edit_book_review_path(@book, review) %>
+      <%= link_to t("action.delete"), [@book, review], method: :delete,
+        data: {confirm: t("action.confirm")} %>
+    <% end %>
+  </span>
+</li>
