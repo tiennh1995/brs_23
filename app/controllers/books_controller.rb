@@ -15,5 +15,6 @@ class BooksController < ApplicationController
       per_page: Settings.per_page
     @review = @reviews.build
     @rated = @book.average_rate
+    @comment = Comment.new
   end
 end

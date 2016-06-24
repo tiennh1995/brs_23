@@ -1,5 +1,8 @@
 <div class="col-sm-4 col-lg-4 col-md-4">
   <div class="thumbnail">
+    <div class="col-md-4">
+      <%= link_to grpicture_for(book, width: 90, height: 100), @book %>
+    </div>
     <div class="caption">
       <h4><b><%= link_to book.title, book %></b></h4>
       <p><%= t "books.new.author" %> : <%= book.author %></p>

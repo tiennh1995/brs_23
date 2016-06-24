@@ -1,13 +1,29 @@
 <li id="review-<%= review.id %>">
-  <span class="content"><h4><%= link_to review.user.fullname, review.user %></h4></span>
-  <span class="content"><%= review.content %></span>
-  <span class="timestamp">
-    <%= t "times.posted" %> <%= time_ago_in_words(review.created_at) %>
-    <%= t "times.ago" %>
-    <% if current_user? review.user %>
-      <%= link_to t("action.edit"), edit_book_review_path(@book, review) %>
-      <%= link_to t("action.delete"), [@book, review], method: :delete,
-        data: {confirm: t("action.confirm")} %>
-    <% end %>
+  <div class="col-md-2 right">
+    <%= link_to gravatar_for(review.user, width: 90, height: 75), review.user %>
+  </div>
+  <h4><%= link_to review.user.fullname, review.user %></h4>
+  <%= review.content %>
+  <br>
+  <%= t "times.posted" %> <%= time_ago_in_words review.created_at %>
+  <%= t "times.ago" %>
+  <% if current_user? review.user %>
+    <%= link_to t("action.edit"), edit_book_review_path(@book, review) %>
+    <%= link_to t("action.delete"), [@book, review], method: :delete,
+      data: {confirm: t("action.confirm")} %>
+  <% end %>
+  <span class="comment">
+    <h4><%= t "comments.comment" %></h4>
+    <ul id="comments_<%= review.id %>">
+      <% if review.comments.any? %>
+        <%= render review.comments %>
+      <% end %>
+    </ul>
   </span>
+  <% if logged_in? && (current_user.following?(review.user) ||
+    current_user == review.user) %>
+    <div id="comment_form_edit">
+      <%= render "shared/comment_form", review: review %>
+    </div>
+  <% end %>
 </li>

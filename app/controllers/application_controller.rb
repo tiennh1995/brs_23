@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def check_null object
     unless object
       flash[:danger] = t "error.fail"
-      redirect_to :back
+      redirect_to root_url
     end
   end
 end

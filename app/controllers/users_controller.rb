@@ -1,13 +1,12 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :show]
+  before_action :logged_in_user, except: :destroy
+  before_action :find_user, only: [:edit, :show, :update]
 
   def index
     @users = User.all
   end
 
   def show
-    @user = User.find_by_id params[:id]
-    check_null @user
   end
 
   def new
@@ -25,9 +24,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t "action.success"
+      redirect_to :back
+    else
+      render :edit
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit :fullname, :email, :password,
-      :password_confirmation
+      :password_confirmation, :avatar
+  end
+
+  def find_user
+    @user = User.find_by_id params[:id]
+    check_null @user
   end
 end

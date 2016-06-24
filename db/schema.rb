@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615020538) do
+ActiveRecord::Schema.define(version: 20160624141926) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "action_id"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 20160615020538) do
     t.string   "remember_digest"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
+    t.string   "avatar"
   end
 
   add_index "users", ["fullname", "email"], name: "index_users_on_fullname_and_email", unique: true

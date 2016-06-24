@@ -1,0 +1,21 @@
+<div id="comment-<%= comment.id %>">
+  <li id="comment-<%= comment.id %>">
+    <div class="col-md-2">
+      <%= link_to gravatar_for(comment.user, width: 60, height: 45),
+        comment.user %>
+    </div>
+    <%= comment.content %>
+    <br>
+    <%= link_to comment.user.fullname, comment.user %>
+    <%= t "times.posted" %> <%= time_ago_in_words comment.created_at %>
+    <%= t "times.ago" %>
+    <% if current_user? comment.user %>
+      <%= link_to t("action.edit"),
+        edit_book_review_comment_path(comment.review.book,
+        comment.review, comment), remote: true %>
+      <%= link_to t("action.delete"),
+        [comment.review.book, comment.review, comment],
+        method: :delete, data: {confirm: t("action.confirm")}, remote: true %>
+    <% end %>
+  </li>
+</div>

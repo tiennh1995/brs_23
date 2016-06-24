@@ -147,6 +147,9 @@ en:
     edit: "Edit"
     delete: "Delete"
     confirm: "Are you sure?"
+    save: "Save"
+    success: "Successful!"
+    danger: "Fail!"
   marks:
     allread: "All read books"
     reading: "Reading"
@@ -168,3 +171,12 @@ en:
   times:
     posted: "Posted"
     ago: "ago."
+  comments:
+    comment: "Comment"
+    your_comment: "Your comment..."
+    success: "Successful!"
+    danger: "Fail!"
+    save: "Save"
+  image:
+    picture: "default_book.png"
+    avatar: "default_avatar.png"

@@ -1,0 +1,9 @@
+<%= form_for [@book, @review, @comment], html: {method: :patch},
+  remote: true do |f| %>
+  <%= render "shared/error_messages", object: @comment %>
+  <%= f.text_area :content, placeholder: t("comments.your_comment"),
+     id: "comment_field_#{@review.id}", class: "form-control" %>
+  <%= f.hidden_field :review_id, value: @review.id %>
+  <%= f.submit t("comments.save"), id: "btn_comments",
+    class: "btn btn-primary" %>
+<% end %>

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end
   resources :follows, only: [:create, :destroy]
   resources :books, only: [:index, :show] do
-    resources :reviews, except: [:show, :index, :new]
+    resources :reviews, except: [:show, :index, :new] do
+      resources :comments, except: [:new, :index, :show]
+    end
     resources :marks, only: [:create, :update]
   end
   namespace :admin do

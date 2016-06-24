@@ -177,10 +177,12 @@ input {
       padding: 5px 0;
     }
   }
+  #btn_comments {
+    width: 100px;
+  }
   .timestamp {
     color: $gray-light;
     display: block;
     margin-left: 60px;
   }
 }
-

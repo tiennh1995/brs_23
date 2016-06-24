@@ -1,0 +1,5 @@
+$("#comment_form_edit").html(
+  "<%= j render 'shared/comment_form', review: @review %>");
+$("#comment-<%= @comment.id %>").html(
+  "<%= j render 'comments/comment', comment: @comment, review: @review %>");
+$("#comment_field_<%= @review.id %>").val("")
