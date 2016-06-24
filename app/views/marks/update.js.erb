@@ -1,0 +1,4 @@
+$("#mark_favorite").html("<%= j render current_user.favorite?(params[:book_id]) ?
+  'books/rmfavorite' : 'books/favorite' %>");
+$("#mark_read").html("<%= j render current_user.was_read?(params[:book_id]) ?
+  'books/wasread' : 'books/markread' %>");

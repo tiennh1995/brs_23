@@ -52,7 +52,12 @@ class User < ActiveRecord::Base
   end
 
   def favorite? book_id
-    self.marks.find_by(book_id: book_id, is_favorite: true).present?
+    marks.find_by(book_id: book_id, is_favorite: true).present?
+  end
+
+  def was_read? book_id
+    mark = marks.find_by book_id: book_id
+    mark.present? ? mark.read? : false
   end
 
   class << self

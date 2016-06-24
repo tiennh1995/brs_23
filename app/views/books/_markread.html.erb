@@ -1,0 +1,4 @@
+<%= form_for [@book, @mark], remote: true do |f| %>
+  <%= f.hidden_field :read, value: 2 %>
+  <%= f.submit t("books.show.markread"), class: "btn btn-primary" %>
+<% end %>

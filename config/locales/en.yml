@@ -142,6 +142,8 @@ en:
       unfavorite: "Remove Favourite"
       addtofavorite: "Added to my favorite"
       removefavorite: "Favorite deleted"
+      markread: "Mark as read"
+      wasread: "Marked as read"
   action:
     title: "Action"
     edit: "Edit"
