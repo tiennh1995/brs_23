@@ -1,12 +1,31 @@
-<h4><%= @book.title %></h4>
-<h5><%= @book.author %></h5>
-<h3 id="favorite_num"><%= @book.marks.count %></h3>
-<h5><%= t "books.index.favorite" %></h5>
-<div id="mark_favorite">
-  <% if current_user.present? %>
-    <%= render current_user.favorite?(params[:id]) ? "rmfavorite" :
-      "favorite" %>
-  <% end %>
+<div class="col-md-9 col-md-offset-2">
+  <div class="thumbnail">
+    <div class="caption-full">
+      <h4><%= link_to @book.title, @book %></h4>
+      <p><%= t "books.new.author" %> : <%= @book.author %></p>
+      <p><%= t "books.new.publish_date" %> : <%= @book.publish_date %></p>
+      <p><%= t "books.new.pages" %> : <%= @book.pages %></p>
+      <p id="favorite_num"><%= @book.marks.count %> <%= t "books.index.favorite" %></p>
+    </div>
+    <div class="ratings">
+      <p class="pull-right"><%= @book.reviews.count %>
+        <%= t "reviews.title" %></p>
+      <p>
+        <%= @rated %>
+        <% (0...@rated.to_i).each do |i| %>
+          <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+        <% (@rated.to_i...5).each do |i| %>
+          <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="well">
+    <%= render "shared/review_form" %>
+    <br>
+    <%= render "shared/feed" %>
+  </div>
 </div>
-<%= render "shared/review_form" %>
-<%= render "reviews/reviews" %>
+
+

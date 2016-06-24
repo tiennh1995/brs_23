@@ -3,6 +3,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.search(params[:search]).paginate page: params[:page],
       per_page: Settings.per_page
+    @rateds = Book.average_rates
   end
 
   def show
@@ -10,7 +11,9 @@ class BooksController < ApplicationController
     check_null @book
     @mark = @book.marks.find_or_initialize_by user_id: current_user.id,
       is_favorite: true
-    @reviews = @book.reviews
+    @reviews = @book.reviews.paginate page: params[:page],
+      per_page: Settings.per_page
     @review = @reviews.build
+    @rated = @book.average_rate
   end
 end
