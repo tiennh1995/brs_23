@@ -1,0 +1,17 @@
+<%= form_for [@book, review], remote: true do |f| %>
+  <div class="row" id="review_update_form">
+    <div class="col-md-3">
+      <%= f.label :rated, t("reviews.rated") %>
+      <%= f.number_field :rated, in: 1..5, id: "review_rated_#{review.id}" %>
+    </div>
+    <%= render "shared/error_messages", object: review %>
+    <div class="col-md-9">
+      <%= f.label :content, t("reviews.content") %>
+      <%= f.text_area :content, id: "review_field_#{review.id}",
+        class: "form-control" %>
+    </div>
+  </div>
+  <div class="col-md-3 pull-right">
+    <%= f.submit t("reviews.save"), class: "btn btn-primary" %>
+  </div>
+<% end %>

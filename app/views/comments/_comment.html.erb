@@ -1,0 +1,9 @@
+<div id="comment-<%= comment.id %>">
+  <li id="comment-<%= comment.id %>">
+    <%= comment.content %>
+    <br>
+    <%= link_to comment.user.fullname, comment.user %>
+    <%= t "times.posted" %> <%= time_ago_in_words comment.created_at %>
+    <%= t "times.ago" %>
+  </li>
+</div>

@@ -1,0 +1,14 @@
+<div class="ratings" id="ratings_<%= @book.id %>">
+  <p class="pull-right"><%= @book.reviews.count %>
+    <%= t "reviews.title" %>
+  </p>
+  <p>
+    <%= @rated.round 2 %>
+    <% (0...@rated.to_i).each do |i| %>
+      <span class="glyphicon glyphicon-star"></span>
+    <% end %>
+    <% (@rated.to_i...5).each do |i| %>
+      <span class="glyphicon glyphicon-star-empty"></span>
+    <% end %>
+  </p>
+</div>

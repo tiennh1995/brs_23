@@ -7,22 +7,12 @@
       <p><%= t "books.new.pages" %> : <%= @book.pages %></p>
       <p id="favorite_num"><%= @book.marks.count %> <%= t "books.index.favorite" %></p>
     </div>
-    <div class="ratings">
-      <p class="pull-right"><%= @book.reviews.count %>
-        <%= t "reviews.title" %></p>
-      <p>
-        <%= @rated %>
-        <% (0...@rated.to_i).each do |i| %>
-          <span class="glyphicon glyphicon-star"></span>
-        <% end %>
-        <% (@rated.to_i...5).each do |i| %>
-          <span class="glyphicon glyphicon-star-empty"></span>
-        <% end %>
-      </p>
-    </div>
+    <%= render "shared/rated" %>
   </div>
   <div class="well">
-    <%= render "shared/review_form" %>
+    <div id="review_form_<%= @book.id %>">
+      <%= render "shared/review_form", review: @review_new %>
+    </div>
     <br>
     <%= render "shared/feed" %>
   </div>
