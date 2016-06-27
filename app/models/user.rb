@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}, uniqueness: true
   has_secure_password
   validates :password, presence: true, length:{minimum: 6}
-
+  mount_uploader :avatar, AvatarUploader
   before_save :downcase_email
 
   attr_accessor :remember_token
