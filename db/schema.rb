@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 20160615020538) do
 
   add_index "marks", ["book_id"], name: "index_marks_on_book_id"
   add_index "marks", ["read", "is_favorite"], name: "index_mark"
+  add_index "marks", ["user_id", "book_id"], name: "index_mark_unique", unique: true
   add_index "marks", ["user_id"], name: "index_marks_on_user_id"
 
   create_table "requests", force: :cascade do |t|

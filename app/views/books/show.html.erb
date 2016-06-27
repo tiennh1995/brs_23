@@ -5,7 +5,17 @@
       <p><%= t "books.new.author" %> : <%= @book.author %></p>
       <p><%= t "books.new.publish_date" %> : <%= @book.publish_date %></p>
       <p><%= t "books.new.pages" %> : <%= @book.pages %></p>
-      <p id="favorite_num"><%= @book.marks.count %> <%= t "books.index.favorite" %></p>
+      <p id="favorite_num"><%= @favorite_num %> <%= t "books.index.favorite" %></p>
+      <% if current_user.present? %>
+        <div id="mark_favorite">
+          <%= render current_user.favorite?(params[:id]) ? "rmfavorite" :
+            "favorite" %>
+        </div>
+        <div id="mark_read">
+          <%= render current_user.was_read?(params[:id]) ? "wasread" :
+            "markread" %>
+        </div>
+      <% end %>
     </div>
     <%= render "shared/rated" %>
   </div>
@@ -17,5 +27,3 @@
     <%= render "shared/feed" %>
   </div>
 </div>
-
-
