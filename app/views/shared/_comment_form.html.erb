@@ -3,6 +3,5 @@
   <%= f.text_area :content, placeholder: t("comments.your_comment"),
     id: "comment_field_#{review.id}", class: "form-control" %>
   <%= f.hidden_field :review_id, value: review.id %>
-  <%= f.submit t("comments.comment"), id: "btn_comments",
-    class: "btn btn-primary" %>
+  <%= f.submit t("comments.comment"), class: "btn btn-primary btn_comments" %>
 <% end %>

@@ -1,5 +1,5 @@
 <%= form_for [@book, review] do |f| %>
-  <div class="row" id="review_form">
+  <div class="row review_form">
     <div class="col-md-3">
       <%= f.label :rated, t("reviews.rated") %>
       <%= f.number_field :rated, in: 1..5 %>
