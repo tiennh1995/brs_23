@@ -1,10 +1,10 @@
-<%= form_for [@book, @review] do |f| %>
-  <div class="row" style="display: inline;">
+<%= form_for [@book, review] do |f| %>
+  <div class="row" id="review_form">
     <div class="col-md-3">
       <%= f.label :rated, t("reviews.rated") %>
       <%= f.number_field :rated, in: 1..5 %>
     </div>
-    <%= render "shared/error_messages", object: @review %>
+    <%= render "shared/error_messages", object: review %>
     <div class="col-md-9">
       <%= f.label :content, t("reviews.content") %>
       <%= f.text_area :content, class: "form-control" %>

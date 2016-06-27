@@ -1,0 +1,7 @@
+$("#review_form_<%= @book.id %>").html(
+  "<%= j render 'shared/review_form', review: @review_new %>");
+$("#review-<%= @review.id %>").html(
+  "<%= j render 'reviews/review', review: @review, comment: @comment_new %>");
+$("#review_field_<%= @review.id %>").val("")
+$("#ratings_<%= @book.id %>").html(
+  "<%= j render 'shared/rated' %>")
