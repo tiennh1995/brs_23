@@ -1,5 +1,8 @@
 <div class="col-md-9 col-md-offset-2">
   <div class="thumbnail">
+    <div class="col-md-4">
+      <%= grimage_for @book, width: 200, height: 200 %>
+    </div>
     <div class="caption-full">
       <h4><%= link_to @book.title, @book %></h4>
       <p><%= t "books.new.author" %> : <%= @book.author %></p>

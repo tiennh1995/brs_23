@@ -5,7 +5,6 @@ class CreateBooks < ActiveRecord::Migration
       t.date :publish_date
       t.string :author
       t.integer :pages
-      t.string :picture
       t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false
