@@ -1,5 +1,5 @@
 <%= form_for [@book, review], remote: true do |f| %>
-  <div class="row" id="review_update_form">
+  <div class="row review_form">
     <div class="col-md-3">
       <%= f.label :rated, t("reviews.rated") %>
       <%= f.number_field :rated, in: 1..5, id: "review_rated_#{review.id}" %>

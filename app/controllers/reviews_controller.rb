@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :logged_in_user
-  before_action :find_review_book, only: [:edit, :update]
+  before_action :find_review_book, only: [:edit, :update, :destroy]
 
   def create
     review = current_user.reviews.new review_params
@@ -16,23 +16,31 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    review = Review.find_by_id params[:id]
-    check_null review
-    if review.destroy
-     flash[:success] = t "reviews.success"
+    if @review.destroy
+      flash[:success] = t "reviews.success"
     else
       flash[:danger] = t "reviews.danger"
     end
-    redirect_to :back
+    redirect_to @book
   end
 
   def edit
+    respond_to do |format|
+      format.html {redirect_to @book}
+      format.js
+    end
   end
 
   def update
     if @review.update_attributes review_params
       flash[:success] = t "reviews.success"
-      redirect_to book_path @book
+      @review_new = @book.reviews.new
+      @comment_new = Comment.new
+      @rated = @book.average_rate
+      respond_to do |format|
+        format.html {redirect_to @book}
+        format.js
+      end
     else
       flash[:danger] = t "reviews.danger"
       render :edit
@@ -45,9 +53,9 @@ class ReviewsController < ApplicationController
   end
 
   def find_review_book
-    @book = Book.find_by_id params[:book_id]
-    check_null @book
     @review = Review.find_by_id params[:id]
     check_null @review
+    @book = @review.book
+    check_null @book
   end
 end
