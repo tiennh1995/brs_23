@@ -18,7 +18,7 @@
       <h4><%= t "comments.comment" %></h4>
       <ul id="comments_<%= review.id %>">
         <% if review.comments.any? %>
-          <%= render review.comments %>
+          <%= render review.comments.order_comment %>
         <% end %>
       </ul>
     </span>

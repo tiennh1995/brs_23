@@ -4,4 +4,5 @@ class Comment < ActiveRecord::Base
   validates :content, presence: true
   validates :user_id, presence: true
   validates :review_id, presence: true
+  scope :order_comment, ->{order created_at: :desc}
 end

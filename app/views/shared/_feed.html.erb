@@ -1,6 +1,6 @@
 <% if @reviews.any? %>
   <ol class="reviews">
-    <%= render @reviews %>
+    <%= render @reviews.order_review %>
   </ol>
   <%= will_paginate @reviews %>
 <% end %>
