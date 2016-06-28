@@ -12,6 +12,7 @@
       <p id="favorite_num">
         <%= @favorite_num %> <%= t "books.index.favorite" %>
       </p>
+    </div>
       <% if current_user.present? %>
         <div id="mark_favorite">
           <%= render current_user.favorite?(params[:id]) ? "rmfavorite" :
@@ -22,7 +23,6 @@
             "markread" %>
         </div>
       <% end %>
-    </div>
     <%= render "shared/rated" %>
   </div>
   <div class="well">

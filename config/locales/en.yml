@@ -182,3 +182,6 @@ en:
   image:
     picture: "default_book.png"
     avatar: "default_avatar.png"
+  activities:
+    like: "Like"
+    unlike: "Unlike"
