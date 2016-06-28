@@ -1,3 +1,3 @@
-$("#comments_<%= @review.id %>").append(
+$("#comments_<%= @review.id %>").prepend(
   '<%= j render "comments/comment", review: @review, comment: @comment %>');
 $("#comment_field_<%= @review.id %>").val("")
