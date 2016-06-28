@@ -2,7 +2,7 @@
   <div class="row review_form">
     <div class="col-md-3">
       <%= f.label :rated, t("reviews.rated") %>
-      <%= f.number_field :rated, in: 1..5 %>
+      <%= f.number_field :rated, in: 1..5, value: 5 %>
     </div>
     <%= render "shared/error_messages", object: review %>
     <div class="col-md-9">

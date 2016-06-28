@@ -60,6 +60,10 @@ class User < ActiveRecord::Base
     mark.present? ? mark.read? : false
   end
 
+  def like? activity_id
+    return Like.find_by(user_id: id, activity_id: activity_id).present?
+  end
+
   class << self
     def digest string
       cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MINCOST :

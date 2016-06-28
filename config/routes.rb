@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     end
     resources :marks, only: [:create, :update]
   end
+  resources :activities do
+    resources :likes, only: [:create, :destroy]
+  end
   namespace :admin do
     root "users#index"
     resources :users, only: [:index, :destroy]
