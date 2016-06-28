@@ -1,7 +1,8 @@
 <div id="review-<%= review.id %>">
   <li id="review-<%= review.id %>">
     <div class="col-md-2 right">
-      <%= link_to grimage_for(review.user, width: 90, height: 75), review.user %>
+      <%= link_to image_tag(review.user.avatar.url, size: Settings.size_avatar),
+        review.user %>
     </div>
     <%= review.content %>
     <%= render "shared/rated_review", review: review %>

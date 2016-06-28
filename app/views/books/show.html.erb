@@ -1,14 +1,17 @@
 <div class="col-md-9 col-md-offset-2">
   <div class="thumbnail">
     <div class="col-md-4">
-      <%= grimage_for @book, width: 200, height: 200 %>
+      <%= link_to image_tag(@book.picture.url, size: Settings.size_book),
+        @book %>
     </div>
     <div class="caption-full">
       <h4><%= link_to @book.title, @book %></h4>
       <p><%= t "books.new.author" %> : <%= @book.author %></p>
       <p><%= t "books.new.publish_date" %> : <%= @book.publish_date %></p>
       <p><%= t "books.new.pages" %> : <%= @book.pages %></p>
-      <p id="favorite_num"><%= @favorite_num %> <%= t "books.index.favorite" %></p>
+      <p id="favorite_num">
+        <%= @favorite_num %> <%= t "books.index.favorite" %>
+      </p>
       <% if current_user.present? %>
         <div id="mark_favorite">
           <%= render current_user.favorite?(params[:id]) ? "rmfavorite" :
