@@ -8,6 +8,8 @@ class ReviewsController < ApplicationController
     check_null book
     review.book_id = book.id
     if review.save
+      current_user.activities.create action_id: book.id,
+        activity_type: :writereview
       flash[:success] = t "reviews.success"
     else
       flash[:danger] = t "reviews.danger"
