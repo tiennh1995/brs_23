@@ -1,9 +1,10 @@
 <div id="comment-<%= comment.id %>">
   <li id="comment-<%= comment.id %>">
     <div class="col-md-2">
-      <%= link_to grimage_for(comment.user, width: 60, height: 45),
-        comment.user %>
+      <%= link_to image_tag(comment.user.avatar.url,
+        size: Settings.size_avatar_comment), comment.user %>
     </div>
+    <br>
     <%= comment.content %>
     <br>
     <%= link_to comment.user.fullname, comment.user %>

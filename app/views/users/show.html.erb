@@ -2,7 +2,8 @@
   <aside class="col-md-4">
     <section>
       <h1>
-        <%= gravatar_for @user, width: 100, height: 100 %>
+        <%= link_to image_tag(@user.avatar.url, size: Settings.size_avatar),
+          @user %>
         <%= @user.fullname %>
       </h1>
     </section>

@@ -1,7 +1,7 @@
 <div class="col-sm-4 col-lg-4 col-md-4">
   <div class="thumbnail">
     <div class="col-md-4">
-      <%= link_to grimage_for(book, width: 90, height: 100), book %>
+      <%= link_to image_tag(book.picture.url, size: Settings.size_book), book %>
     </div>
     <div class="caption">
       <h4><b><%= link_to book.title, book %></b></h4>
