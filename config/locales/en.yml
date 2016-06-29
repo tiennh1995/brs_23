@@ -85,6 +85,8 @@ en:
       email: "Email"
     logged_in_user:
       danger: "Please log in"
+    edit:
+      title: "Edit information"
     follow: "Follow"
     unfollow: "Unfollow"
   admin:
