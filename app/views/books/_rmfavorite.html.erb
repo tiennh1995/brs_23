@@ -1,4 +1,4 @@
 <%= form_for [@book, @mark], remote: true do |f| %>
   <%= f.hidden_field :is_favorite, value: false %>
-  <%= f.submit t("books.show.unfavorite"), class: "btn" %>
+  <%= f.submit t("books.show.unfavorite"), class: "btn markform" %>
 <% end %>

@@ -7,6 +7,8 @@ class MarksController < ApplicationController
   end
 
   def update
+    @mark = Mark.find_by_id params[:id]
+    check_null @mark
     if params[:mark] == "favorite"
       @mark.update_attributes is_favorite: false
       redirect_to :back
@@ -16,8 +18,6 @@ class MarksController < ApplicationController
     else
       @book = Book.find_by_id params[:book_id]
       check_null @book
-      @mark = Mark.find_by_id params[:id]
-      check_null @mark
       @mark.update_attributes mark_params
       if params[:mark][:is_favorite]
         current_user.activities.find_or_create_by action_id: @book.id,

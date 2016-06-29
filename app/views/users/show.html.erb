@@ -1,8 +1,8 @@
 <div class="row">
-  <aside class="col-md-4">
+  <aside class="col-md-4 bg-info">
     <section>
       <h1>
-        <%= link_to image_tag(@user.avatar.url, size: Settings.size_avatar),
+        <%= link_to image_tag(@user.avatar.url, size: Settings.avatar_user),
           @user %>
         <%= @user.fullname %>
       </h1>
