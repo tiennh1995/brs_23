@@ -21,7 +21,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length:{minimum: 6}
   mount_uploader :avatar, AvatarUploader
   before_save :downcase_email
-
+  scope :activity, ->(user){Activity.where "user_id IN (SELECT followed_id FROM
+    follows WHERE follower_id = :user_id) OR user_id = :user_id", user_id: user.id}
   attr_accessor :remember_token
 
   def remember
@@ -62,6 +63,10 @@ class User < ActiveRecord::Base
 
   def like? activity_id
     return Like.find_by(user_id: id, activity_id: activity_id).present?
+  end
+
+  def activity
+    Activity.activity id
   end
 
   class << self

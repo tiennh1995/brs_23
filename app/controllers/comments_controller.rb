@@ -9,6 +9,8 @@ class CommentsController < ApplicationController
     check_null @review
     @comment.review_id = @review.id
     if @comment.save
+      current_user.activities.create action_id: @review.book_id,
+        activity_type: :writecomment
       respond_to do |format|
         format.html {redirect_to @review.book}
         format.js

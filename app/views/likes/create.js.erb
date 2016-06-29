@@ -1,1 +1,2 @@
-$("#like-<%= @activity.id %>").html('<%= j render "shared/unlike" %>');
+$("#like-<%= @activity.id %>").html(
+  '<%= j render "shared/unlike", activity: @activity %>');

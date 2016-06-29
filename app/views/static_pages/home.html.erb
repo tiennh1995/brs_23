@@ -1,5 +1,13 @@
 <h1><%= t "static_pages.home.title" %></h1>
-<% unless logged_in? %>
+<% if logged_in? %>
+  <div class="span2 row">
+    <ul>
+      <% if @activities.any? %>
+        <%= render @activities %>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
   <div class="center jumbotron">
     <%= link_to t("static_pages.home.signup"),
       signup_path, class: "btn btn-lg btn-primary" %>

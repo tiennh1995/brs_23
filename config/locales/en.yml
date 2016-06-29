@@ -159,6 +159,7 @@ en:
     allfavorite: "All favorite books"
   error:
     fail: "Sorry, something went wrong"
+    errors: "#Error"
   searches:
     title: "Search"
     search: "Search"
@@ -185,3 +186,10 @@ en:
   activities:
     like: "Like"
     unlike: "Unlike"
+    follow: " follow "
+    me: "you"
+    mine: "You"
+    markread: " mark new read book "
+    markfav: " mark new favorite "
+    writereview: " write new review in "
+    writecmt: " write new comment in "
