@@ -1,4 +1,4 @@
-<hr>
+<li>
 <div>
   <%= link_to activity.user.fullname, activity.user %>
   <%= " #{activity_title(activity)}" %>
@@ -23,6 +23,7 @@
     "shared/unlike" : "shared/like", activity: activity %>
 </span>
 <span>
-  <%= t "times.posted" %><%= time_ago_in_words activity.created_at %>
+  <%= t "times.posted" %> <%= time_ago_in_words activity.created_at %>
   <%= t "times.ago" %>
 </span>
+</li>

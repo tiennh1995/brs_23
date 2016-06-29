@@ -7,7 +7,9 @@ $gray-medium-light: #eaeaea;
 body {
   padding-top: 60px;
 }
-
+.home {
+  min-height: 600px;
+}
 section {
   overflow: auto;
 }
@@ -68,10 +70,9 @@ p {
 
 /* footer */
 footer {
-  margin-top: 45px;
-  padding-top: 5px;
+  margin-top: 50px;
+  padding-top: 10px;
   border-top: 1px solid #eaeaea;
-  position: fixed;
   height: 70px;
   bottom: 0;
   width: 100%;
@@ -116,7 +117,7 @@ aside {
       line-height: 1;
     }
     h1 {
-      font-size: 1.4em;
+      font-size: 2.4em;
       text-align: left;
       letter-spacing: -1px;
       margin-bottom: 3px;
@@ -194,15 +195,9 @@ input {
 .review_form {
   display: inline;
 }
-
-#mark_favorite {
-  position: absolute;
-  top: 0;
-  left: 81%;
+.formmark {
+  margin-top: 40px;
 }
-
-#mark_read {
-  position: absolute;
-  top: 0;
-  left: 68%;
+.markform {
+  width: 150px;
 }
