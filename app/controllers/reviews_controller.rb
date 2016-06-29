@@ -34,7 +34,6 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update_attributes review_params
-      flash[:success] = t "reviews.success"
       @review_new = @book.reviews.new
       @comment_new = Comment.new
       respond_to do |format|

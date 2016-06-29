@@ -1,0 +1,30 @@
+<div class="col-md-8 col-md-offset-2">
+  <%= form_for [:admin, @book], html: {multipart: true} do |f| %>
+    <%= render "shared/error_messages", object: @book %>
+    <div class="field">
+      <%= f.label t("books.new.category"), class: "control-laber" %>
+      <%= collection_select :book, :category_id, @categories, :id, :name,
+        {prompt: t("books.new.category_form")}, class: "form-control" %>
+
+      <%= f.label t("books.new.title"), class: "control-laber" %>
+      <%= f.text_field :title, placeholder: t("books.new.title"),
+        class: "form-control" %>
+
+      <%= f.label t("books.new.author"), class: "control-laber" %>
+      <%= f.text_field :author, placeholder: t("books.new.author"),
+        class: "form-control" %>
+
+      <%= f.label t("books.new.publish_date"), class: "control-laber" %>
+      <%= f.text_field :publish_date, class: "datepicker form-control",
+        placeholder: t("books.new.publish_date_form") %>
+
+      <%= f.label t("books.new.pages"), class: "control-laber" %>
+      <%= f.text_field :pages, placeholder: t("books.new.pages"),
+        class: "form-control" %>
+      <span class="picture">
+        <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
+      </span>
+    </div>
+    <%= f.submit t("books.new.save"), class: "btn btn-primary" %>
+  <% end %>
+</div>

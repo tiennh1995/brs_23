@@ -171,6 +171,7 @@ en:
     danger: "fail!"
     save: "Save"
     title: "reviews"
+    edit: "Edit your review"
   times:
     posted: "Posted"
     ago: "ago."
@@ -180,6 +181,7 @@ en:
     success: "Successful!"
     danger: "Fail!"
     save: "Save"
+    edit: "Edit your comment"
   image:
     picture: "default_book.png"
     avatar: "default_avatar.png"

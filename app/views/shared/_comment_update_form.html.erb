@@ -1,3 +1,4 @@
+<h3><%= t "comments.edit" %></h3>
 <%= form_for [@book, review, comment], remote: true do |f| %>
   <%= render "shared/error_messages", object: comment %>
   <div class="form-inline">
@@ -5,7 +6,7 @@
       id: "comment_field_#{review.id}", size: Settings.size_text_comment,
       class: "form-control" %>
     <%= f.hidden_field :review_id, value: review.id %>
-    <%= f.submit t("comments.comment"), id: "btn_comments",
+    <%= f.submit t("comments.save"), id: "btn_comments",
       class: "btn btn-primary btn_comments" %>
   </div>
 <% end %>

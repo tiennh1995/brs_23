@@ -6,10 +6,7 @@
     <div class="ellipsis">
       <h4><b><%= link_to book.title, book %></b></h4>
       <p><%= t "books.new.author" %> : <%= book.author %></p>
-    </div>
-    <div class="ratings">
-      <p class="pull-right"><%= book.reviews.count %>
-        <%= t "reviews.title" %></p>
+      <p><%= book.reviews.count %> <%= t "reviews.title" %></p>
       <p>
         <%= book.rated.round 2 %>
         <% (0...book.rated.to_i).each do |i| %>
@@ -19,6 +16,6 @@
           <span class="glyphicon glyphicon-star-empty"></span>
         <% end %>
       </p>
-    </div>
+   </div>
   </div>
 </div>
