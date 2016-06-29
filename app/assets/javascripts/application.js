@@ -17,9 +17,9 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on("page:load", function(){
-  $(".datepicker").datepicker({
-    format: "yyyy/mm/dd",
+$(document).on('focus', '.datepicker', function(){
+  $(this).datepicker({
+    format: 'yyyy/mm/dd',
     autoclose: true,
     todayHighlight: true
  });

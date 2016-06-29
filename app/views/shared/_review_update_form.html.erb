@@ -1,3 +1,4 @@
+<h3><%= t "reviews.edit" %></h3>
 <%= form_for [@book, review], remote: true do |f| %>
   <div class="row review_form">
     <div class="col-md-3">
@@ -11,7 +12,7 @@
         class: "form-control" %>
     </div>
   </div>
-  <div class="col-md-3 pull-right">
+  <div class="col-md-2 pull-right">
     <%= f.submit t("reviews.save"), class: "btn btn-primary" %>
   </div>
 <% end %>

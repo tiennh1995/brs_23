@@ -38,7 +38,6 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update_attributes comment_params
-      flash.now[:success] = t "comments.success"
       @comment_new = Comment.new
       respond_to do |format|
         format.html {redirect_to @book}

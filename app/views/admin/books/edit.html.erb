@@ -1,25 +1,2 @@
 <h1><%= t "books.edit.title" %></h1>
-<%= form_for @book, url: admin_book_path, html: {multipart: true} do |f| %>
-  <%= render "shared/error_messages", object: @book %>
-  <div class="field">
-    <%= f.label t("books.new.category") %>
-    <%= collection_select :book, :category_id, @categories, :id, :name %>
-
-    <%= f.label t("books.new.title") %>
-    <%= f.text_field :title, placeholder: t("books.new.title") %>
-
-    <%= f.label t("books.new.author") %>
-    <%= f.text_field :author, placeholder: t("books.new.author") %>
-
-    <%= f.label t("books.new.publish_date") %>
-    <%= f.text_field :publish_date, class: "datepicker",
-      placeholder: t("books.new.publish_date_form") %>
-
-    <%= f.label t("books.new.pages") %>
-    <%= f.text_field :pages, placeholder: t("books.new.pages") %>
-  </div>
-  <%= f.submit t("books.new.save"), class: "btn btn-primary" %>
-  <span class="picture">
-    <%= f.file_field :picture, accept: "image/jpeg,image/gif,image/png" %>
-  </span>
-<% end %>
+<%= render "form" %>

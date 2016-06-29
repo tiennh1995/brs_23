@@ -1,5 +1,5 @@
 <div class="row">
-  <aside class="col-md-4 bg-info">
+  <aside class="col-md-5">
     <section>
       <h1>
         <%= link_to image_tag(@user.avatar.url, size: Settings.avatar_user),
@@ -12,7 +12,7 @@
     </section>
     <%= render "follow_form" if logged_in? && !current_user.is_admin? %>
   </aside>
-  <aside class="col-md-5">
+  <aside class="col-md-5 activity">
     <h3><%= t "activities.title" %></h3>
     <div class="span2 row">
       <ul>
