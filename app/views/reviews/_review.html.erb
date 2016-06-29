@@ -1,32 +1,36 @@
 <div id="review-<%= review.id %>">
   <li id="review-<%= review.id %>">
-    <div class="col-md-2 right">
-      <%= link_to image_tag(review.user.avatar.url, size: Settings.size_avatar),
-        review.user %>
+    <div id="review_info-<%= review.id %>">
+      <div class="col-md-2 right">
+        <%= link_to image_tag(review.user.avatar.url, size: Settings.size_avatar),
+          review.user %>
+      </div>
+      <%= review.content %>
+      <%= render "shared/rated_review", review: review %>
+      <%= t "times.posted" %> <%= time_ago_in_words review.created_at %>
+      <%= t "times.ago" %>
+      <% if current_user? review.user %>
+        <%= link_to t("action.edit"), edit_book_review_path(@book, review),
+          remote: true %>
+        <%= link_to t("action.delete"), [@book, review], method: :delete,
+          data: {confirm: t("action.confirm")} %>
+      <% end %>
     </div>
-    <%= review.content %>
-    <%= render "shared/rated_review", review: review %>
-    <%= t "times.posted" %> <%= time_ago_in_words review.created_at %>
-    <%= t "times.ago" %>
-    <% if current_user? review.user %>
-      <%= link_to t("action.edit"), edit_book_review_path(@book, review),
-        remote: true %>
-      <%= link_to t("action.delete"), [@book, review], method: :delete,
-        data: {confirm: t("action.confirm")} %>
-    <% end %>
     <span class="comment">
-      <h4><%= t "comments.comment" %></h4>
-      <ul id="comments_<%= review.id %>">
+      <br>
+      <ul class="comment" id="comments_<%= review.id %>">
         <% if review.comments.any? %>
           <%= render review.comments.order_comment %>
         <% end %>
+        <% if current_user.following?(review.user) ||
+           current_user == review.user %>
+          <hr>
+          <div id="comment_form_<%= review.id %>">
+            <%= render "shared/comment_form", review: review,
+              comment: @comment_new %>
+          </div>
+        <% end %>
       </ul>
     </span>
-    <% if current_user.following?(review.user) || current_user == review.user %>
-      <div id="comment_form_<%= review.id %>">
-        <%= render "shared/comment_form", review: review,
-          comment: @comment_new %>
-      </div>
-    <% end %>
   </li>
 </div>

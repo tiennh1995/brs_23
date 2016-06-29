@@ -1,9 +1,9 @@
-<div class="col-sm-4 col-lg-4 col-md-4">
-  <div class="thumbnail">
+<div class="col-sm-3 col-lg-4 col-md-3">
+  <div class="thumbnail book">
     <div class="col-md-4">
       <%= link_to image_tag(book.picture.url, size: Settings.size_book), book %>
     </div>
-    <div class="caption">
+    <div class="ellipsis">
       <h4><b><%= link_to book.title, book %></b></h4>
       <p><%= t "books.new.author" %> : <%= book.author %></p>
     </div>
@@ -11,11 +11,11 @@
       <p class="pull-right"><%= book.reviews.count %>
         <%= t "reviews.title" %></p>
       <p>
-        <%= @rateds[book.id].round 2 %>
-        <% (0...@rateds[book.id].to_i).each do |i| %>
+        <%= book.rated.round 2 %>
+        <% (0...book.rated.to_i).each do |i| %>
           <span class="glyphicon glyphicon-star"></span>
         <% end %>
-        <% (@rateds[book.id].to_i...5).each do |i| %>
+        <% (book.rated.to_i...5).each do |i| %>
           <span class="glyphicon glyphicon-star-empty"></span>
         <% end %>
       </p>

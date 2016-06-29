@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @activities = current_user.activity.order_by_time.paginate page:
+      params[:page], per_page: Settings.per_page_activity
+    @list_books = Activity.list_book @activities
+    @list_users = Activity.list_user @activities
   end
 
   def new
