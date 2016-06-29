@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627083410) do
+ActiveRecord::Schema.define(version: 20160615020538) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "action_id"
@@ -29,10 +29,11 @@ ActiveRecord::Schema.define(version: 20160627083410) do
     t.date     "publish_date"
     t.string   "author"
     t.integer  "pages"
-    t.integer  "category_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
     t.string   "picture"
+    t.float    "rated",        default: 0.0
+    t.integer  "category_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "books", ["category_id"], name: "index_books_on_category_id"
@@ -125,9 +126,9 @@ ActiveRecord::Schema.define(version: 20160627083410) do
     t.string   "password_digest"
     t.boolean  "is_admin",        default: false
     t.string   "remember_digest"
+    t.string   "avatar"
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
-    t.string   "avatar"
   end
 
   add_index "users", ["fullname", "email"], name: "index_users_on_fullname_and_email", unique: true
