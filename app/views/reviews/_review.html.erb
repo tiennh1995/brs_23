@@ -7,6 +7,7 @@
       </div>
       <%= review.content %>
       <%= render "shared/rated_review", review: review %>
+      <%= link_to review.user.fullname, review.user %>
       <%= t "times.posted" %> <%= time_ago_in_words review.created_at %>
       <%= t "times.ago" %>
       <% if current_user? review.user %>

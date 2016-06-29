@@ -9,7 +9,7 @@ module ApplicationHelper
       t "activities.markfav"
     when "writereview"
       t "activities.writereview"
-    when "writecmt"
+    when "writecomment"
       t "activities.writecmt"
     end
   end
