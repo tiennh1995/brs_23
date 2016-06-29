@@ -1,29 +1,30 @@
+<hr>
 <li>
-<div>
-  <%= link_to activity.user.fullname, activity.user %>
-  <%= " #{activity_title(activity)}" %>
-  <% if activity.follow? %>
-    <% if @list_users.where(id: activity.action_id).blank? %>
-      <%= link_to(t("error.errors"), help_path) %>
+  <div>
+    <%= link_to activity.user.fullname, activity.user %>
+    <%= "#{activity_title(activity)}" %>
+    <% if activity.follow? %>
+      <% if @list_users.where(id: activity.action_id).blank? %>
+        <%= link_to(t("error.errors"), help_path) %>
+      <% else %>
+        <%= link_to(@list_users.find_by_id(activity.action_id).fullname,
+          @list_users.find_by_id(activity.action_id)) %>
+      <% end %>
     <% else %>
-      <%= link_to(@list_users.find_by_id(activity.action_id).fullname,
-        @list_users.find_by_id(activity.action_id)) %>
+      <% if @list_books.where(id: activity.action_id).blank? %>
+        <%= link_to(t("error.errors"), help_path) %>
+      <% else %>
+        <%= link_to(@list_books.find_by_id(activity.action_id).title,
+          @list_books.find_by_id(activity.action_id)) %>
+      <% end %>
     <% end %>
-  <% else %>
-    <% if @list_books.where(id: activity.action_id).blank? %>
-      <%= link_to(t("error.errors"), help_path) %>
-    <% else %>
-      <%= link_to(@list_books.find_by_id(activity.action_id).title,
-        @list_books.find_by_id(activity.action_id)) %>
-    <% end %>
-  <% end %>
-</div>
-<span id="like-<%= activity.id %>">
-  <%= render current_user.like?(activity.id) ?
-    "shared/unlike" : "shared/like", activity: activity %>
-</span>
-<span>
-  <%= t "times.posted" %> <%= time_ago_in_words activity.created_at %>
-  <%= t "times.ago" %>
-</span>
+  </div>
+  <span id="like-<%= activity.id %>">
+    <%= render current_user.like?(activity.id) ?
+      "shared/unlike" : "shared/like", activity: activity %>
+  </span>
+  <span>
+    <%= t "times.posted" %> <%= time_ago_in_words activity.created_at %>
+    <%= t "times.ago" %>
+  </span>
 </li>

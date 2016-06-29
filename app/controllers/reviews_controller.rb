@@ -10,7 +10,6 @@ class ReviewsController < ApplicationController
     if review.save
       current_user.activities.create action_id: book.id,
         activity_type: :writereview
-      flash[:success] = t "reviews.success"
     else
       flash[:danger] = t "reviews.danger"
     end
@@ -38,7 +37,6 @@ class ReviewsController < ApplicationController
       flash[:success] = t "reviews.success"
       @review_new = @book.reviews.new
       @comment_new = Comment.new
-      @rated = @book.average_rate
       respond_to do |format|
         format.html {redirect_to @book}
         format.js

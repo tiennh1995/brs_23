@@ -14,22 +14,9 @@ class Book < ActiveRecord::Base
     OR author LIKE ? OR pages = ?",
     "%#{search}%", "#{search}", "%#{search}%", "#{search}"}
 
-  def average_rate
-    Review.where(book_id: self.id).average(:rated).to_f
-  end
-
   class << self
     def search search
       search ? search_by(search) : Book.all
-    end
-
-    def average_rates
-      books = Book.all
-      rateds = Hash.new
-      books.each do |book|
-        rateds[book.id] = book.average_rate
-      end
-      rateds
     end
   end
 end

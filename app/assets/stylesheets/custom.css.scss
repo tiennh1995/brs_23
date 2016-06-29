@@ -6,6 +6,7 @@ $gray-medium-light: #eaeaea;
 /* universal */
 body {
   padding-top: 60px;
+  background-color: #e9ebee;
 }
 .home {
   min-height: 600px;
@@ -200,4 +201,22 @@ input {
 }
 .markform {
   width: 150px;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+div.book {
+  padding: 10px;
+}
+
+ul.comment {
+  margin-left: 100px;
+}
+
+div.well {
+  background-color: #f6f7f9;
 }
