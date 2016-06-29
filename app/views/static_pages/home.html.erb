@@ -1,10 +1,25 @@
 <% if logged_in? %>
-  <div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-      <% if @activities.any? %>
-        <%= render @activities %>
-      <% end %>
-    </ul>
+  <div class="row">
+    <aside class="col-md-9">
+      <h3><%= t "books.index.title" %></h3>
+      <section>
+        <% if @books.any? %>
+          <%= render @books %>
+          <%= will_paginate @books %>
+        <% end %>
+      </section>
+    </aside>
+    <aside class="col-md-3">
+      <h3><%= t "activities.title" %></h3>
+      <div class="span2 row">
+        <ul>
+          <% if @activities.any? %>
+            <%= render @activities %>
+            <%= will_paginate @activities %>
+          <% end %>
+        </ul>
+      </div>
+    </aside>
   </div>
 <% else %>
   <div class="center jumbotron">

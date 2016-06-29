@@ -6,6 +6,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :author
       t.integer :pages
       t.string :picture
+      t.float :rated, default: 0
       t.references :category, index: true, foreign_key: true
 
       t.timestamps null: false

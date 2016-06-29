@@ -12,5 +12,16 @@
     </section>
     <%= render "follow_form" if logged_in? && !current_user.is_admin? %>
   </aside>
+  <aside class="col-md-5">
+    <h3><%= t "activities.title" %></h3>
+    <div class="span2 row">
+      <ul>
+        <% if @activities.any? %>
+          <%= render @activities %>
+          <%= will_paginate @activities %>
+        <% end %>
+      </ul>
+    </div>
+  </aside>
 </div>
 
