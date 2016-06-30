@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :logged_in_user
   before_action :find_review_book, only: [:edit, :update, :destroy]
+  before_action :check_admin
 
   def create
     review = current_user.reviews.new review_params

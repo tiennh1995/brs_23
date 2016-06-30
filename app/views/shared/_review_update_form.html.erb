@@ -3,7 +3,8 @@
   <div class="row review_form">
     <div class="col-md-3">
       <%= f.label :rated, t("reviews.rated") %>
-      <%= f.number_field :rated, in: 1..5, id: "review_rated_#{review.id}" %>
+      <%= f.select :rated, options_for_select(Review.rateds),
+        {id: "review_rated_#{review.id}"}, {class: "form-control"} %>
     </div>
     <%= render "shared/error_messages", object: review %>
     <div class="col-md-9">

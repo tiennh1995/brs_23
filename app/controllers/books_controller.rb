@@ -1,8 +1,11 @@
 class BooksController < ApplicationController
   before_action :logged_in_user
+  before_action :check_admin, only: :index
+
   def index
-    @books = Book.search(params[:search]).paginate page: params[:page],
-      per_page: Settings.per_page
+    @types = Book.column_search.map {|e| I18n.t("books.column.#{e}")}
+    @books = Book.search(params[:search], params[:type]).paginate page:
+      params[:page], per_page: Settings.per_page
   end
 
   def show

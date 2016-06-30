@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user
   before_action :find_comment, only: [:destroy, :edit, :update]
+  before_action :check_admin
 
   def create
     @comment = current_user.comments.new comment_params

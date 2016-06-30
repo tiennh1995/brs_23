@@ -1,6 +1,6 @@
 class RequestsController < ApplicationController
   before_action :logged_in_user, except: [:show, :edit, :update]
-  before_action :check_admin, only: [:new, :create]
+  before_action :check_admin
 
   def index
     @requests = current_user.requests
@@ -35,9 +35,5 @@ class RequestsController < ApplicationController
   def request_params
     params.require(:request).permit :book_title, :book_publish_date,
       :book_author
-  end
-
-  def check_admin
-    redirect_to admin_root_url if current_user.is_admin?
   end
 end

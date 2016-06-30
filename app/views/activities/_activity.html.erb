@@ -1,28 +1,33 @@
 <hr>
 <li>
   <div>
-    <%= link_to activity.user.fullname, activity.user %>
+    <%= link_to truncate(activity.user.fullname, length: Settings.length_name),
+      activity.user %>
     <%= "#{activity_title(activity)}" %>
     <% if activity.follow? %>
       <% if @list_users.where(id: activity.action_id).blank? %>
         <%= link_to(t("error.errors"), help_path) %>
       <% else %>
-        <%= link_to(@list_users.find_by_id(activity.action_id).fullname,
+        <%= link_to(truncate(@list_users.find_by_id(activity.action_id).
+          fullname, length: Settings.length_name),
           @list_users.find_by_id(activity.action_id)) %>
       <% end %>
     <% else %>
       <% if @list_books.where(id: activity.action_id).blank? %>
         <%= link_to(t("error.errors"), help_path) %>
       <% else %>
-        <%= link_to(@list_books.find_by_id(activity.action_id).title,
+        <%= link_to(truncate(@list_books.find_by_id(activity.action_id).title,
+          length: Settings.length_title),
           @list_books.find_by_id(activity.action_id)) %>
       <% end %>
     <% end %>
   </div>
-  <span id="like-<%= activity.id %>">
-    <%= render current_user.like?(activity.id) ?
-      "shared/unlike" : "shared/like", activity: activity %>
-  </span>
+  <% unless current_user.is_admin? %>
+    <span id="like-<%= activity.id %>">
+      <%= render current_user.like?(activity.id) ?
+        "shared/unlike" : "shared/like", activity: activity, like: @like %>
+    </span>
+  <% end %>
   <span>
     <%= t "times.posted" %> <%= time_ago_in_words activity.created_at %>
     <%= t "times.ago" %>

@@ -1,6 +1,8 @@
 class MarksController < ApplicationController
   before_action :logged_in_user
   before_action :correct_user, only: :index
+  before_action :check_admin
+
   def index
     @marks = current_user.marks.read_or_reading
     @favorites = current_user.marks.loved
@@ -27,7 +29,8 @@ class MarksController < ApplicationController
           activity_type: 1
       end
       respond_to do |format|
-        format.html {redirect_to book_path(@book, @mark)}
+        @favorite_num = @book.marks.loved.size
+        format.html {redirect_to book_path(@book, @mark, @favorite_num)}
         format.js
       end
     end

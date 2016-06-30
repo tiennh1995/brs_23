@@ -14,4 +14,10 @@ class Review < ActiveRecord::Base
   def average_rate book_id
     Review.where(book_id: book_id).average(:rated).to_f
   end
+
+  class << self
+    def rateds
+      rated = [1, 2, 3, 4, 5]
+    end
+  end
 end

@@ -1,10 +1,11 @@
-<%= form_for [@book, review] do |f| %>
+<%= form_for [@book, review], class: "navbar-form" do |f| %>
   <div class="row review_form">
+    <%= render "shared/error_messages", object: review %>
     <div class="col-md-3">
       <%= f.label :rated, t("reviews.rated") %>
-      <%= f.number_field :rated, in: 1..5, value: 5 %>
+      <%= f.select :rated, options_for_select(Review.rateds), {},
+        {class: "form-control"} %>
     </div>
-    <%= render "shared/error_messages", object: review %>
     <div class="col-md-9">
       <%= f.label :content, t("reviews.content") %>
       <%= f.text_area :content, class: "form-control" %>

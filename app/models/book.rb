@@ -10,13 +10,26 @@ class Book < ActiveRecord::Base
   validates :pages, presence: true, length: {maximum: 6},
     numericality: {only_integer: true}
   mount_uploader :picture, PictureUploader
-  scope :search_by, ->(search) {where "title LIKE ? OR publish_date = ?
-    OR author LIKE ? OR pages = ?",
-    "%#{search}%", "#{search}", "%#{search}%", "#{search}"}
+  scope :search_with_string, ->(search, column) {where "#{column} LIKE ?",
+    "%#{search}%"}
+  scope :search_with_category, ->(search, column) {where "category_id IN
+    (SELECT id FROM categories WHERE name LIKE ?)", "%#{search}%"}
+  scope :search_with_, ->(search, column) {all}
 
   class << self
-    def search search
-      search ? search_by(search) : Book.all
+    def search search, column
+      if column == "title" || column == "author"
+        type = "string"
+      else
+        type = column
+      end
+      send "search_with_#{type}", search, column
+    end
+
+    def column_search
+      a = ["id", "created_at", "updated_at", "pages", "rated", "publish_date",
+        "picture"]
+      Book.column_names - a
     end
   end
 end

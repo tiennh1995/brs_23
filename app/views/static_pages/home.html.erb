@@ -1,16 +1,16 @@
 <% if logged_in? %>
-  <div class="row">
-    <aside class="col-md-8">
-      <h3><%= t "books.index.title" %></h3>
-      <section>
-        <% if @books.any? %>
-          <%= render @books %>
-          <%= will_paginate @books %>
-        <% end %>
-      </section>
-    </aside>
-    <% unless current_user.is_admin? %>
-      <aside class="col-md-4 activity">
+  <% unless current_user.is_admin? %>
+    <div class="row">
+      <aside class="col-md-9">
+        <h3><%= t "books.index.title" %></h3>
+        <section>
+          <% if @books.any? %>
+            <%= render @books %>
+            <%= will_paginate @books %>
+          <% end %>
+        </section>
+      </aside>
+      <aside class="col-md-3 activity">
         <h3><%= t "activities.title" %></h3>
         <div class="span2 row">
           <ul>
@@ -20,9 +20,9 @@
             <% end %>
           </ul>
         </div>
-      </aside>
-    <% end %>
-  </div>
+        </aside>
+    </div>
+  <% end %>
 <% else %>
   <div class="center jumbotron">
     <%= link_to t("static_pages.home.signup"),

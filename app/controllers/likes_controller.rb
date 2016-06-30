@@ -1,6 +1,7 @@
 class LikesController < ApplicationController
   before_action :logged_in_user
   before_action :find_activity
+  before_action :check_admin
 
   def create
     @like = current_user.likes.build

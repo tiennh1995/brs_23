@@ -7,18 +7,19 @@
             @book %>
         </div>
         <div class="col-md-6">
-          <h4><%= link_to @book.title, @book %></h4>
+          <h4><%= link_to truncate(@book.title), @book %></h4>
+          <p><%= t "books.new.category" %> : <%= @book.category.name %></p>
           <p><%= t "books.new.author" %> : <%= @book.author %></p>
           <p><%= t "books.new.publish_date" %> : <%= @book.publish_date %></p>
           <p><%= t "books.new.pages" %> : <%= @book.pages %></p>
           <p id="favorite_num">
-            <%= @favorite_num %> <%= t "books.index.favorite" %>
+            <%= render "favorite_num" %>
           </p>
           <%= render "shared/rated" %>
         </div>
       </div>
       <div class="col-md-3 center">
-        <% if current_user.present? %>
+        <% if current_user.present? && !current_user.is_admin?%>
           <div id="mark_favorite" class="formmark">
             <%= render current_user.favorite?(params[:id]) ? "rmfavorite" :
               "favorite" %>
@@ -32,9 +33,11 @@
     </div>
   </div>
     <div class="well">
-      <div id="review_form_<%= @book.id %>">
-        <%= render "shared/review_form", review: @review_new %>
-      </div>
+      <% unless current_user.is_admin? %>
+        <div id="review_form_<%= @book.id %>">
+          <%= render "shared/review_form", review: @review_new %>
+        </div>
+      <% end %>
       <br>
       <%= render "shared/feed" %>
     </div>

@@ -1,9 +1,12 @@
-per_page: 10
+per_page: 9
 per_page_activity: 4
 width_limit: 400
 height_limit: 400
 size_avatar: "85x85"
 avatar_user: "120x120"
-size_book: "170x170"
+size_book: "170x250"
+size_index_book: "100x110"
 size_avatar_comment: "60x60"
 size_text_comment: "60x2"
+length_title: 14
+length_name: 20

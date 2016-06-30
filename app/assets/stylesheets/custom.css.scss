@@ -10,6 +10,8 @@ body {
 }
 .home {
   min-height: 600px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 section {
   overflow: auto;
@@ -131,11 +133,11 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
 }
 
 input {
   height: auto !important;
+  margin-bottom: 15px;
 }
 
 .users {
@@ -211,6 +213,7 @@ input {
 
 div.book {
   padding: 10px;
+  max-height: 170px;
 }
 
 ul.comment {
@@ -227,4 +230,35 @@ div.well {
 }
 table {
   background-color: #fff;
+}
+
+#ex1Slider .slider-selection {
+  background: #BABABA;
+}
+
+nav.search {
+  background-color: #e9ebee;
+}
+
+.search {
+  min-width: 500px;
+}
+
+div.showb {
+  overflow:hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  display:inline-block;
+}
+span.title {
+  font-size: 130%;
+}
+span {
+  color: #000;
+}
+span.glyphicon-star {
+  color: #f0c808;
+}
+.activity_title {
+  font-size: 130%;
 }

@@ -146,6 +146,10 @@ en:
       removefavorite: "Favorite deleted"
       markread: "Mark as read"
       wasread: "Marked as read"
+    column:
+      title: "title"
+      author: "author"
+      category_id: "category"
   action:
     title: "Action"
     edit: "Edit"
